@@ -21,7 +21,7 @@ class QuranJsonDataSource(private val context: Context) {
             }
 
             val surahs = mutableListOf<SurahEntity>()
-            for ((surahId, pages) in surahPageMap) {  // استدعاء الخريطة من الملف الجديد
+            for ((surahId, pages) in surahPageMap) {
                 val (startPage, endPage) = pages
 
                 surahs.add(
