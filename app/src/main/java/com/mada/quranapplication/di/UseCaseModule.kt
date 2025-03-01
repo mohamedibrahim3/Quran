@@ -45,4 +45,5 @@ object UseCaseModule {
     fun provideInitializeSurahDataUseCase(repository: QuranRepository): InitializeSurahDataUseCase {
         return InitializeSurahDataUseCase(repository)
     }
+
 }
