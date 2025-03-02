@@ -24,18 +24,23 @@ class QuranReaderViewModel @Inject constructor(
     private val _state = MutableStateFlow(QuranReaderState())
     val state: StateFlow<QuranReaderState> = _state.asStateFlow()
 
-    private var allSurahs: List<Surah> = emptyList()
+    private val _allSurahs = MutableStateFlow<List<Surah>>(emptyList())
+    var allSurahs: StateFlow<List<Surah>> = _allSurahs.asStateFlow()
 
     init {
         viewModelScope.launch {
             initializeSurahDataUseCase()
-            collectSurahs()
+            getAllSurahsUseCase().collectLatest { surahs ->
+                _allSurahs.value = surahs
+            }
             collectCurrentPage()
         }
     }
 
     private suspend fun collectSurahs() {
-        allSurahs = getAllSurahsUseCase().first()
+        getAllSurahsUseCase().collectLatest { surah ->
+            _allSurahs.value = surah
+        }
     }
 
     private suspend fun collectCurrentPage() {
