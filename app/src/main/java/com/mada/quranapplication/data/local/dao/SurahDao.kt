@@ -21,4 +21,7 @@ interface SurahDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllSurahs(surahs: List<SurahEntity>)
+
+    @Query("SELECT COUNT(*) FROM SURAHS")
+    suspend fun getCount(): Int
 }
