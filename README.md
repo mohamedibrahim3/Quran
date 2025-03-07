@@ -1,4 +1,4 @@
-# Holy Quran Android Application
+# Quran Android Application
 
 The goal of this application is to provide a digital Quran reader that displays Quranic surahs in a clean, user-friendly interface. The app features a complete Quran with all 114 surahs, page navigation, bookmarking capabilities, and settings for customization.
 
